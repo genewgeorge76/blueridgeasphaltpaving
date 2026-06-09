@@ -9,18 +9,35 @@ export default function sitemap(): MetadataRoute.Sitemap {
     '',
     '/commercial-paving',
     '/residential-driveways',
+    '/tar-and-chip',
     '/asphalt-milling',
     '/sealcoating-maintenance',
     '/insights',
   ]
 
-  // Local SEO Silo Pages
+  // Local SEO Silo Pages (Domination Engine)
   const locations = [
-    '/roanoke-va',
-    '/charlottesville-va',
-    '/lynchburg-va',
-    '/hot-springs-va',
-    '/franklin-wv'
+    '/service/roanoke-va',
+    '/service/charlottesville-va',
+    '/service/winchester-va',
+    '/service/monterey-va',
+    '/service/staunton-va',
+    '/service/harrisonburg-va',
+    '/service/lexington-va',
+    '/service/waynesboro-va',
+    '/service/hot-springs-va',
+    '/service/warm-springs-va',
+    '/service/clifton-forge-va',
+    '/service/covington-va',
+    '/service/luray-va',
+    '/service/front-royal-va',
+    '/service/buchanan-va',
+    '/service/fincastle-va',
+    '/service/crozet-va',
+    '/service/new-market-va',
+    '/service/woodstock-va',
+    '/service/strasburg-va',
+    '/service/franklin-wv'
   ]
 
   const serviceUrls = services.map((route) => ({
@@ -34,7 +51,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     url: `${baseUrl}${route}`,
     lastModified: new Date(),
     changeFrequency: 'monthly' as const,
-    priority: 0.7,
+    priority: 0.9, // Very important for local SEO
   }))
 
   // Dynamic Insight/Blog Pages
