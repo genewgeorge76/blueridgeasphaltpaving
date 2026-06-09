@@ -11,6 +11,7 @@ export interface InsightData {
   title: string
   date: string
   description: string
+  author?: string
   coverImage: string
   contentHtml?: string
 }
@@ -36,7 +37,7 @@ export function getSortedInsightsData(): InsightData[] {
     // Combine the data with the slug
     return {
       slug,
-      ...(matterResult.data as { title: string; date: string; description: string; coverImage: string }),
+      ...(matterResult.data as { title: string; date: string; description: string; coverImage: string; author?: string }),
     }
   })
 
@@ -79,6 +80,6 @@ export async function getInsightData(slug: string): Promise<InsightData> {
   return {
     slug,
     contentHtml,
-    ...(matterResult.data as { title: string; date: string; description: string; coverImage: string }),
+    ...(matterResult.data as { title: string; date: string; description: string; coverImage: string; author?: string }),
   }
 }

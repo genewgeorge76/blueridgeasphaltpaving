@@ -31,8 +31,11 @@ export default async function InsightPost({ params }: { params: Promise<{ slug: 
           <p style={{ color: 'var(--powerhouse-red)', fontWeight: 'bold', letterSpacing: '2px', marginBottom: '10px' }}>
             ENGINEERING CASE STUDY
           </p>
-          <h1 style={{ fontSize: '4rem', lineHeight: '1.1' }}>{insightData.title}</h1>
-          <p>{new Date(insightData.date).toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' })}</p>
+          <h1 style={{ fontSize: '4rem', lineHeight: '1.1', marginBottom: '15px' }}>{insightData.title}</h1>
+          <div style={{ display: 'flex', gap: '20px', alignItems: 'center' }}>
+            <p style={{ color: 'var(--estate-gold)', fontWeight: 'bold', letterSpacing: '1px' }}>{insightData.author ? `AUTHOR: ${insightData.author}` : ''}</p>
+            <p style={{ color: '#ccc' }}>{new Date(insightData.date).toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' })}</p>
+          </div>
         </div>
       </section>
 

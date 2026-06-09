@@ -54,6 +54,32 @@ export default function SealcoatingMaintenance() {
           </div>
         </div>
 
+        <h2 style={{ fontSize: '2.5rem', marginBottom: '30px' }}>Top 5 Structural Benefits of Commercial Sealcoating</h2>
+        <div style={{ marginBottom: '60px' }}>
+          <ul style={{ listStyleType: 'none', padding: 0 }}>
+            <li style={{ marginBottom: '20px', padding: '20px', background: '#fff', borderLeft: '5px solid #d32f2f', boxShadow: '0 2px 10px rgba(0,0,0,0.05)' }}>
+              <strong style={{ fontSize: '1.3rem', display: 'block', marginBottom: '10px' }}>1. Blocks UV Oxidation (Prevents Brittleness)</strong>
+              <span style={{ fontSize: '1.1rem', color: '#555' }}>The sun's ultraviolet rays bake the essential oils out of the asphalt cement binder. Sealcoating provides a sacrificial, UV-resistant barrier that takes the sun damage, keeping the underlying asphalt flexible and preventing micro-cracks.</span>
+            </li>
+            <li style={{ marginBottom: '20px', padding: '20px', background: '#fff', borderLeft: '5px solid #d32f2f', boxShadow: '0 2px 10px rgba(0,0,0,0.05)' }}>
+              <strong style={{ fontSize: '1.3rem', display: 'block', marginBottom: '10px' }}>2. Waterproofs the Pavement (Prevents Freeze-Thaw Damage)</strong>
+              <span style={{ fontSize: '1.1rem', color: '#555' }}>Water is asphalt's greatest enemy. When water penetrates unsealed pavement, it freezes during Appalachian winters, expands by 9%, and shatters the asphalt from the inside out. High-solids sealcoating completely waterproofs the surface.</span>
+            </li>
+            <li style={{ marginBottom: '20px', padding: '20px', background: '#fff', borderLeft: '5px solid #d32f2f', boxShadow: '0 2px 10px rgba(0,0,0,0.05)' }}>
+              <strong style={{ fontSize: '1.3rem', display: 'block', marginBottom: '10px' }}>3. Resists Chemical Spills (Gas, Oil, Anti-Freeze)</strong>
+              <span style={{ fontSize: '1.1rem', color: '#555' }}>Because asphalt is a petroleum product, motor oil and gasoline will literally dissolve it. Commercial coal tar and asphalt emulsion sealers are highly resistant to chemical spills, protecting your parking lot from vehicular leaks.</span>
+            </li>
+            <li style={{ marginBottom: '20px', padding: '20px', background: '#fff', borderLeft: '5px solid #d32f2f', boxShadow: '0 2px 10px rgba(0,0,0,0.05)' }}>
+              <strong style={{ fontSize: '1.3rem', display: 'block', marginBottom: '10px' }}>4. Restores Deep Black Aesthetics (Curb Appeal)</strong>
+              <span style={{ fontSize: '1.1rem', color: '#555' }}>A freshly sealcoated driveway or commercial lot looks brand new. The rich, deep black finish provides massive curb appeal, increasing property value and ensuring high-contrast visibility for ADA-compliant line striping.</span>
+            </li>
+            <li style={{ marginBottom: '20px', padding: '20px', background: '#fff', borderLeft: '5px solid #d32f2f', boxShadow: '0 2px 10px rgba(0,0,0,0.05)' }}>
+              <strong style={{ fontSize: '1.3rem', display: 'block', marginBottom: '10px' }}>5. Melts Ice and Snow Faster</strong>
+              <span style={{ fontSize: '1.1rem', color: '#555' }}>Because a sealcoated surface is deeply black, it absorbs and retains significantly more heat from the sun than oxidized, gray asphalt. This means snow and ice melt significantly faster during brutal Virginia winters.</span>
+            </li>
+          </ul>
+        </div>
+
         <h2 style={{ fontSize: '3rem', marginBottom: '30px' }}>The ROI of Pavement Maintenance</h2>
         <p style={{ fontSize: '1.2rem', color: 'var(--text-secondary)', marginBottom: '40px', lineHeight: '1.8' }}>
           For commercial property managers, a proactive maintenance schedule is the single most effective way to protect capital. A parking lot that costs $250,000 to completely reconstruct can be preserved indefinitely for pennies on the dollar through a strict cycle of hot-pour crack filling every 2 years and commercial sealcoating every 3-4 years. If you wait until alligator cracking appears, it is too late to sealcoat; structural failure has already occurred.

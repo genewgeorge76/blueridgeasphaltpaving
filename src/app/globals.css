@@ -1,13 +1,18 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
 :root {
-  --bg-primary: #ffffff;
-  --bg-secondary: #f4f5f7;
-  --text-primary: #111111;
-  --text-secondary: #555555;
-  --powerhouse-red: #fbbf24; /* The Rose Paving Red */
-  --powerhouse-red-hover: #b71c1c;
-  --carbon-black: #0f172a;
+  --bg-primary: #050505;
+  --bg-secondary: #0a0a0a;
+  --text-primary: #f8f9fa;
+  --text-secondary: #a1a1aa;
+  --estate-gold: #d4af37;
+  --estate-gold-hover: #b8962e;
+  --carbon-black: #000000;
   --pure-white: #ffffff;
-  --border-light: #e5e7eb;
+  --border-light: rgba(255, 255, 255, 0.08);
+  --glass-bg: rgba(10, 10, 10, 0.6);
 }
 
 * {
@@ -21,7 +26,7 @@ html {
 }
 
 body {
-  font-family: 'Montserrat', sans-serif;
+  font-family: 'Inter', sans-serif;
   background-color: var(--bg-primary);
   color: var(--text-primary);
   line-height: 1.6;
@@ -29,79 +34,102 @@ body {
 }
 
 h1, h2, h3, h4 {
-  font-family: 'Bebas Neue', sans-serif;
-  font-weight: 800;
-  color: var(--carbon-black);
-  text-transform: uppercase;
-  letter-spacing: 1px;
+  font-family: 'Outfit', sans-serif;
+  font-weight: 700;
+  color: var(--text-primary);
+  letter-spacing: -0.5px;
 }
 
 /* 
 ========================================
-THE TOP BAR (UPGRADE: Frosted Glass)
+UTILITIES (Glassmorphism & Premium)
+========================================
+*/
+.glass-panel {
+  background: var(--glass-bg);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid var(--border-light);
+  border-radius: 12px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+}
+
+.gold-text {
+  background: linear-gradient(135deg, #f9d423 0%, #d4af37 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* 
+========================================
+THE TOP BAR (Premium Dark)
 ========================================
 */
 .top-bar {
   background: var(--carbon-black);
-  color: var(--pure-white);
-  padding: 10px 40px;
+  color: var(--text-secondary);
+  padding: 12px 40px;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  font-size: 0.85rem;
-  font-weight: 600;
-  letter-spacing: 1px;
+  font-size: 0.8rem;
+  font-weight: 500;
+  letter-spacing: 2px;
   text-transform: uppercase;
+  border-bottom: 1px solid var(--border-light);
 }
 
 .navbar {
-  background: rgba(255, 255, 255, 0.95);
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
-  border-bottom: 2px solid var(--powerhouse-red);
-  padding: 20px 40px;
+  background: rgba(5, 5, 5, 0.85);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border-bottom: 1px solid var(--border-light);
+  padding: 24px 40px;
   position: sticky;
   top: 0;
   z-index: 1000;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-  transition: all 0.3s ease;
+  transition: all 0.4s ease;
 }
 
 .logo {
-  font-size: 28px;
+  font-size: 24px;
   font-weight: 800;
-  color: var(--carbon-black);
+  font-family: 'Outfit', sans-serif;
+  color: var(--text-primary);
   display: flex;
   align-items: center;
-  gap: 10px;
+  gap: 12px;
   text-transform: uppercase;
-  letter-spacing: -1px;
+  letter-spacing: 2px;
 }
 
 .logo span {
-  color: var(--powerhouse-red);
+  color: var(--estate-gold);
 }
 
 .nav-links {
   display: flex;
   align-items: center;
-  gap: 30px;
+  gap: 40px;
 }
 
 .nav-links a {
-  color: var(--carbon-black);
+  color: var(--text-primary);
   text-decoration: none;
-  font-weight: 700;
-  text-transform: uppercase;
+  font-weight: 500;
   font-size: 0.9rem;
-  transition: color 0.3s ease;
+  letter-spacing: 1px;
+  transition: all 0.3s ease;
+  opacity: 0.8;
 }
 
 .nav-links a:hover {
-  color: var(--powerhouse-red);
+  color: var(--estate-gold);
+  opacity: 1;
 }
 
 /* 
@@ -110,24 +138,26 @@ BUTTONS
 ========================================
 */
 .btn-primary {
-  background: var(--powerhouse-red);
-  color: var(--pure-white) !important;
-  padding: 16px 32px;
-  font-weight: 800 !important;
+  background: var(--estate-gold);
+  color: var(--carbon-black) !important;
+  padding: 16px 36px;
+  font-weight: 700 !important;
+  font-family: 'Outfit', sans-serif;
   text-transform: uppercase;
-  transition: all 0.3s ease !important;
+  transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1) !important;
   border: none;
+  border-radius: 4px;
   cursor: pointer;
   display: inline-block;
   text-decoration: none;
-  letter-spacing: 1px;
-  box-shadow: 0 4px 15px rgba(211, 47, 47, 0.3);
+  letter-spacing: 1.5px;
+  box-shadow: 0 4px 20px rgba(212, 175, 55, 0.2);
 }
 
 .btn-primary:hover {
-  background: var(--powerhouse-red-hover);
-  transform: translateY(-2px);
-  box-shadow: 0 8px 25px rgba(211, 47, 47, 0.5);
+  background: #f9d423;
+  transform: translateY(-3px);
+  box-shadow: 0 8px 30px rgba(212, 175, 55, 0.4);
 }
 
 /* 
@@ -137,11 +167,13 @@ THE HERO
 */
 .hero {
   position: relative;
-  height: 85vh;
-  min-height: 600px;
+  min-height: 100vh;
   display: flex;
   align-items: center;
-  background: url('https://images.unsplash.com/photo-1584988292850-928cc5d5a7d6?ixlib=rb-4.0.3&auto=format&fit=crop&w=2000&q=80') center/cover;
+  justify-content: center;
+  text-align: center;
+  background: url('/images/hero.png') center/cover;
+  padding: 100px 20px;
 }
 
 .hero-overlay {
@@ -150,58 +182,39 @@ THE HERO
   left: 0;
   width: 100%;
   height: 100%;
-  background: linear-gradient(90deg, rgba(17,17,17,0.95) 0%, rgba(17,17,17,0.7) 50%, rgba(17,17,17,0) 100%);
+  background: rgba(0,0,0,0.15);
 }
 
 .hero-content {
   position: relative;
   z-index: 1;
-  max-width: 800px;
+  max-width: 900px;
   padding: 0 60px;
   color: var(--pure-white);
 }
 
 .hero-content h1 {
-  font-size: 6rem;
+  font-size: 5.5rem;
   color: var(--pure-white);
-  margin-bottom: 20px;
-  line-height: 1.1;
-  text-transform: uppercase;
+  margin-bottom: 24px;
+  line-height: 1.05;
+  text-transform: none;
+  letter-spacing: -2px;
+  text-shadow: 0 4px 15px rgba(0,0,0,0.9);
 }
 
 .hero-content h1 span {
-  color: var(--powerhouse-red);
+  color: var(--estate-gold);
 }
 
 .hero-content p {
   font-size: 1.25rem;
-  margin-bottom: 40px;
+  margin-bottom: 48px;
   font-weight: 500;
-  max-width: 600px;
-  color: #ddd;
-}
-
-/* 
-========================================
-SUBPAGE HERO (Shorter for Inner Pages)
-========================================
-*/
-.subpage-hero {
-  position: relative;
-  height: 50vh;
-  min-height: 400px;
-  display: flex;
-  align-items: center;
-  background-size: cover;
-  background-position: center;
-}
-
-.subpage-hero .hero-overlay {
-  background: linear-gradient(90deg, rgba(17,17,17,0.95) 0%, rgba(17,17,17,0.8) 60%, rgba(17,17,17,0) 100%);
-}
-
-.subpage-hero h1 {
-  font-size: 4rem;
+  max-width: 650px;
+  color: #fff;
+  line-height: 1.8;
+  text-shadow: 0 2px 10px rgba(0,0,0,0.9);
 }
 
 /* 
@@ -210,57 +223,42 @@ TRUST STRIP
 ========================================
 */
 .trust-strip {
-  background: var(--powerhouse-red);
-  color: var(--pure-white);
+  background: var(--bg-secondary);
+  color: var(--text-primary);
   padding: 40px;
   display: flex;
   justify-content: center;
   gap: 80px;
   flex-wrap: wrap;
+  border-bottom: 1px solid var(--border-light);
+  border-top: 1px solid var(--border-light);
 }
 
 .trust-item {
   display: flex;
   align-items: center;
   gap: 15px;
-  font-size: 1.2rem;
-  font-weight: 800;
-  text-transform: uppercase;
+  font-size: 1.1rem;
+  font-weight: 500;
+  font-family: 'Outfit', sans-serif;
   letter-spacing: 1px;
 }
 
 /* 
 ========================================
-THE GRID (The Rose Clone + Upgrade)
+THE GRID (High End Upgrade)
 ========================================
 */
 .services-section {
-  padding: 100px 40px;
-  max-width: 1600px;
-  margin: 0 auto;
-}
-
-.section-header {
-  text-align: center;
-  margin-bottom: 60px;
-}
-
-.section-header h2 {
-  font-size: 3.5rem;
-  margin-bottom: 20px;
-}
-
-.section-header p {
-  font-size: 1.2rem;
-  color: var(--text-secondary);
-  max-width: 800px;
+  padding: 0;
+  max-width: 100%;
   margin: 0 auto;
 }
 
 .massive-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
-  gap: 0; /* Rose Paving uses flush grids for maximum impact */
+  gap: 0; 
 }
 
 .grid-item {
@@ -268,6 +266,7 @@ THE GRID (The Rose Clone + Upgrade)
   aspect-ratio: 1 / 1;
   overflow: hidden;
   cursor: pointer;
+  border: 1px solid var(--border-light);
 }
 
 .grid-bg {
@@ -278,7 +277,8 @@ THE GRID (The Rose Clone + Upgrade)
   height: 100%;
   background-size: cover;
   background-position: center;
-  transition: transform 0.7s cubic-bezier(0.165, 0.84, 0.44, 1);
+  transition: transform 1.2s cubic-bezier(0.165, 0.84, 0.44, 1);
+  filter: grayscale(80%) contrast(1.2);
 }
 
 .grid-overlay {
@@ -287,8 +287,8 @@ THE GRID (The Rose Clone + Upgrade)
   left: 0;
   width: 100%;
   height: 100%;
-  background: rgba(17, 17, 17, 0.6);
-  transition: background 0.4s ease;
+  background: linear-gradient(to top, rgba(5,5,5,0.95) 0%, rgba(5,5,5,0.2) 100%);
+  transition: background 0.5s ease;
 }
 
 .grid-content {
@@ -296,32 +296,35 @@ THE GRID (The Rose Clone + Upgrade)
   bottom: 0;
   left: 0;
   width: 100%;
-  padding: 40px;
+  padding: 50px;
   transform: translateY(20px);
-  transition: transform 0.4s ease;
+  transition: transform 0.5s cubic-bezier(0.165, 0.84, 0.44, 1);
 }
 
 .grid-content h3 {
   color: var(--pure-white);
-  font-size: 2rem;
-  margin-bottom: 10px;
+  font-size: 2.2rem;
+  margin-bottom: 16px;
+  font-weight: 600;
 }
 
 .grid-content p {
-  color: var(--pure-white);
+  color: var(--text-secondary);
   opacity: 0;
   transform: translateY(20px);
-  transition: all 0.4s ease;
-  font-weight: 500;
+  transition: all 0.5s cubic-bezier(0.165, 0.84, 0.44, 1);
+  font-weight: 400;
+  line-height: 1.7;
 }
 
 /* The Grid Hover Upgrade */
 .grid-item:hover .grid-bg {
-  transform: scale(1.1);
+  transform: scale(1.08);
+  filter: grayscale(0%) contrast(1.1);
 }
 
 .grid-item:hover .grid-overlay {
-  background: rgba(211, 47, 47, 0.85); /* Heavy Red Hover */
+  background: linear-gradient(to top, rgba(5,5,5,0.98) 0%, rgba(5,5,5,0.4) 100%);
 }
 
 .grid-item:hover .grid-content {
@@ -339,15 +342,17 @@ FOOTER
 ========================================
 */
 .footer {
-  background: var(--carbon-black);
+  background: var(--bg-primary);
   color: var(--pure-white);
   padding: 100px 40px 40px;
+  border-top: 1px solid var(--border-light);
 }
 
 .footer h3 {
   color: var(--pure-white);
   margin-bottom: 30px;
-  font-size: 1.5rem;
+  font-size: 1.3rem;
+  letter-spacing: 1px;
 }
 
 .footer-grid {
@@ -364,18 +369,36 @@ FOOTER
 }
 
 .footer-col ul li {
-  color: #aaaaaa;
   margin-bottom: 15px;
-  font-size: 1.1rem;
-  font-weight: 500;
+  font-size: 1rem;
+}
+
+.footer-col ul li a {
+  color: var(--text-secondary);
+  transition: color 0.3s ease;
+}
+
+.footer-col ul li a:hover {
+  color: var(--estate-gold);
 }
 
 .footer-bottom {
   text-align: center;
   padding-top: 40px;
-  border-top: 1px solid #333;
-  color: #666;
-  font-size: 1rem;
-  font-weight: 600;
-  text-transform: uppercase;
+  border-top: 1px solid var(--border-light);
+  color: var(--text-secondary);
+  font-size: 0.9rem;
+  font-weight: 400;
+  letter-spacing: 1px;
+}
+
+/* FAQ Accordion Styles */
+details.faq-details summary::-webkit-details-marker {
+  display: none;
+}
+details.faq-details[open] summary .faq-icon {
+  transform: rotate(180deg);
+}
+.faq-icon {
+  transition: transform 0.3s ease;
 }

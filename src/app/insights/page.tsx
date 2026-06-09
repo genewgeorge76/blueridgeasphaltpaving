@@ -21,7 +21,7 @@ export default function InsightsPage() {
 
       <section style={{ padding: '80px 40px', maxWidth: '1400px', margin: '0 auto' }}>
         <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(400px, 1fr))', gap: '40px' }}>
-          {allInsightsData.map(({ slug, date, title, description, coverImage }) => (
+          {allInsightsData.map(({ slug, date, title, description, coverImage, author }) => (
             <a href={`/insights/${slug}`} key={slug} style={{ textDecoration: 'none', color: 'inherit' }}>
               <div style={{ background: '#fff', borderRadius: '8px', overflow: 'hidden', boxShadow: '0 4px 20px rgba(0,0,0,0.08)', transition: 'transform 0.3s ease' }} className="insight-card">
                 <div style={{ height: '250px', width: '100%', position: 'relative' }}>
@@ -29,7 +29,8 @@ export default function InsightsPage() {
                 </div>
                 <div style={{ padding: '30px' }}>
                   <p style={{ color: 'var(--powerhouse-red)', fontWeight: 'bold', fontSize: '0.9rem', marginBottom: '10px' }}>{new Date(date).toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' })}</p>
-                  <h2 style={{ fontSize: '1.5rem', marginBottom: '15px', lineHeight: '1.3' }}>{title}</h2>
+                  <h2 style={{ fontSize: '1.5rem', marginBottom: '10px', lineHeight: '1.3' }}>{title}</h2>
+                  {author && <p style={{ fontSize: '0.9rem', color: 'var(--estate-gold)', marginBottom: '15px', fontWeight: 'bold', letterSpacing: '1px' }}>AUTHOR: {author}</p>}
                   <p style={{ color: 'var(--text-secondary)', lineHeight: '1.6' }}>{description}</p>
                   <div style={{ marginTop: '20px', display: 'inline-block', fontWeight: 'bold', borderBottom: '2px solid var(--powerhouse-red)' }}>Read Case Study</div>
                 </div>

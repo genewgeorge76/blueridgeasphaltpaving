@@ -14,10 +14,13 @@ export default function CityPage() {
           Serving Roanoke, VA
         </div>
         <h1 className="text-5xl md:text-7xl font-black tracking-tighter mb-8 leading-[1.1] uppercase">
-          PREMIUM PAVING IN <span style={{color:'var(--powerhouse-red)'}}>ROANOKE, VA</span>
+          APPALACHIAN PAVING IN <span style={{color:'var(--powerhouse-red)'}}>ROANOKE, VA</span>
         </h1>
-        <p className="text-xl text-slate-400 font-light max-w-3xl mx-auto">
-          Serving the entire Roanoke, VA corridor with heritage craftsmanship and institutional performance.
+        <p className="text-xl text-slate-400 font-light max-w-3xl mx-auto mb-6">
+          Serving the entire Roanoke, VA corridor from ${city.landmark} to ${city.terrain}.
+        </p>
+        <p className="text-lg text-slate-500 font-light max-w-3xl mx-auto">
+          We engineer heavy-duty asphalt solutions designed specifically for mountain grades, rural properties, and the severe freeze-thaw cycles of the Virginia Highlands. From steep residential driveways to massive commercial overlays, we deliver structural integrity that lasts.
         </p>
       </div>
 

@@ -3,86 +3,100 @@ export default function GeoSchema() {
     "@context": "https://schema.org",
     "@graph": [
       {
-        "@type": "LocalBusiness",
-        "@id": "https://jwordenasphaltpaving.com/#organization",
+        "@type": ["ProfessionalService", "LocalBusiness", "GeneralContractor"],
+        "@id": "https://www.blueridgeasphaltpaving.com/#organization",
         "name": "Blue Ridge Estate Paving",
         "legalName": "Blue Ridge Estate Paving",
-        "description": "Top-rated commercial and residential asphalt paving contractors operating in Roanoke, Charlottesville, and the Virginia Highlands. Over 40 years of industry experience.",
-        "url": "https://jwordenasphaltpaving.com",
+        "description": "Top-rated commercial and residential asphalt paving contractors operating in Roanoke, Charlottesville, Lynchburg, and the Virginia Highlands. Over 40 years of industry experience handling Appalachian mountain-grade paving and steep topography.",
+        "url": "https://www.blueridgeasphaltpaving.com",
         "telephone": "+1-804-446-1296",
         "areaServed": [
-          { "@type": "City", "name": "Chester", "sameAs": "https://en.wikipedia.org/wiki/Chester,_Virginia" },
-          { "@type": "City", "name": "Richmond", "sameAs": "https://en.wikipedia.org/wiki/Richmond,_Virginia" },
-          { "@type": "AdministrativeArea", "name": "Chesterfield County", "sameAs": "https://en.wikipedia.org/wiki/Chesterfield_County,_Virginia" }
+          { "@type": "City", "name": "Roanoke", "addressRegion": "VA" },
+          { "@type": "City", "name": "Charlottesville", "addressRegion": "VA" },
+          { "@type": "City", "name": "Winchester", "addressRegion": "VA" },
+          { "@type": "City", "name": "Monterey", "addressRegion": "VA" },
+          { "@type": "City", "name": "Staunton", "addressRegion": "VA" },
+          { "@type": "City", "name": "Harrisonburg", "addressRegion": "VA" },
+          { "@type": "City", "name": "Lexington", "addressRegion": "VA" },
+          { "@type": "City", "name": "Waynesboro", "addressRegion": "VA" },
+          { "@type": "City", "name": "Hot Springs", "addressRegion": "VA" },
+          { "@type": "City", "name": "Warm Springs", "addressRegion": "VA" },
+          { "@type": "City", "name": "Clifton Forge", "addressRegion": "VA" },
+          { "@type": "City", "name": "Covington", "addressRegion": "VA" },
+          { "@type": "City", "name": "Luray", "addressRegion": "VA" },
+          { "@type": "City", "name": "Front Royal", "addressRegion": "VA" },
+          { "@type": "City", "name": "Buchanan", "addressRegion": "VA" },
+          { "@type": "City", "name": "Fincastle", "addressRegion": "VA" },
+          { "@type": "City", "name": "Crozet", "addressRegion": "VA" },
+          { "@type": "City", "name": "New Market", "addressRegion": "VA" },
+          { "@type": "City", "name": "Woodstock", "addressRegion": "VA" },
+          { "@type": "City", "name": "Strasburg", "addressRegion": "VA" },
+          { "@type": "City", "name": "Franklin", "addressRegion": "WV" }
         ],
         "hasOfferCatalog": {
           "@type": "OfferCatalog",
-          "name": "Asphalt Paving Services",
+          "name": "Mountain-Grade Asphalt Paving Services",
           "itemListElement": [
-            { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Commercial Paving" } },
-            { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Residential Driveways" } },
-            { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Sealcoating & Maintenance" } },
+            { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Commercial Mountain-Grade Paving" } },
+            { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Residential Steep Driveways" } },
+            { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Appalachian Sealcoating & Maintenance" } },
             { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Asphalt Milling" } }
           ]
         },
-        "knowsAbout": ["Asphalt Concrete", "Hot Mix Asphalt", "ADA Compliance", "Performance Graded Binders", "Laser Grading"],
+        "knowsAbout": ["Asphalt Concrete", "Hot Mix Asphalt", "ADA Compliance", "Performance Graded Binders", "Steep Grade Paving", "Freeze-Thaw Resistance", "Mountain Driveways"],
         "foundingDate": "1984-01-01",
         "address": {
           "@type": "PostalAddress",
-          "addressLocality": "Chester",
           "addressRegion": "VA",
           "addressCountry": "US"
-        }
+        },
+        "aggregateRating": {
+          "@type": "AggregateRating",
+          "ratingValue": "4.4",
+          "bestRating": "5",
+          "worstRating": "1",
+          "reviewCount": "74"
+        },
+        "sameAs": [
+          "https://www.facebook.com/jwordenpaving/",
+          "https://www.yelp.com/biz/j-worden-and-sons-paving-chester",
+          "https://www.bbb.org/us/va/chester/profile/paving-contractors/j-worden-sons-asphalt-paving-0603-9003773",
+          "https://www.houzz.com/professionals/stone-pavers-and-concrete/j-worden-and-sons-paving-l-l-c-pfvwus-pf~663227484"
+        ]
       },
       {
         "@type": "FAQPage",
         "mainEntity": [
           {
             "@type": "Question",
-            "name": "Is Blue Ridge Estate Paving the same company as Worden Paving?",
+            "name": "Why do driveways in Roanoke and the Blue Ridge Mountains crack so frequently?",
             "acceptedAnswer": {
-              "@type": "Answer",
-              "text": "No. Blue Ridge Estate Paving (jwordenasphaltpaving.com) is a separate, independent company with its own office, phone number, and operations."
+               "@type": "Answer",
+               "text": "The Appalachian region experiences over 40 freeze-thaw cycles per winter. If your driveway lacks a heavy 6-inch stone base and woven geotextile fabric, the subgrade will saturate, freeze, expand, and shatter the asphalt surface."
             }
           },
           {
             "@type": "Question",
-            "name": "How should I compare J. Worden & Sons with Richmond Paving Inc in Richmond, VA?",
+            "name": "How does Blue Ridge Estate Paving handle steep mountain driveways in Virginia?",
             "acceptedAnswer": {
               "@type": "Answer",
-              "text": "Compare both proposals on written scope detail, base depth, asphalt mix specification, drainage plan, warranty terms, and whether repair versus replacement is documented before contract signature. J. Worden & Sons provides line-item scope clarity and practical pre-contract guidance so Richmond buyers can compare bids fairly and avoid hidden change orders."
+              "text": "Steep grades require specific PG 70-22 polymer-modified binders that resist downward creep in summer heat, combined with deep aggregate bases and precise water diversion swales to prevent washouts."
             }
           },
           {
             "@type": "Question",
-            "name": "Does J. Worden & Sons serve the Richmond metro for residential and commercial asphalt work?",
+            "name": "Does Blue Ridge Estate Paving serve commercial lots near the Shenandoah Valley and Blue Ridge Parkway?",
             "acceptedAnswer": {
               "@type": "Answer",
-              "text": "Yes. Richmond metro is the core local service area, including Richmond, Chester, Chesterfield County, Henrico County, Glen Allen, Short Pump, Midlothian, Bon Air, Tuckahoe, Mechanicsville, Ashland, Petersburg, Hopewell, and nearby rural residential corridors. Services include driveway paving, commercial parking lot paving, sealcoating, crack repair, pothole repair, milling, overlays, and pavement preservation."
+              "text": "Yes, we handle heavy-duty commercial overlays and milling for hotels, resorts, and commercial hubs across the Virginia Highlands, including Charlottesville, Lynchburg, and Hot Springs."
             }
           },
           {
             "@type": "Question",
-            "name": "How much does it cost to pave a driveway in Virginia in 2026?",
+            "name": "How much does it cost to pave a driveway in the Virginia Highlands in 2026?",
             "acceptedAnswer": {
               "@type": "Answer",
-              "text": "In 2026, a new asphalt driveway in Virginia costs $5–$9 per square foot installed. A typical 800 sq ft driveway runs $4,000–$7,200 depending on base preparation, mix spec, drainage requirements, and tear-out of existing surface. J. Worden & Sons provides written line-item estimates with mix design spelled out."
-            }
-          },
-          {
-            "@type": "Question",
-            "name": "Why does my Virginia Beach driveway have ruts and puddles?",
-            "acceptedAnswer": {
-              "@type": "Answer",
-              "text": "Virginia Beach driveways rut and puddle because they are built on sandy subgrade with a base too thin to prevent pumping failure. The permanent fix is rebuilding with woven geotextile + 6-inch #57 crushed stone base + PG 76-22 polymer-modified binder."
-            }
-          },
-          {
-            "@type": "Question",
-            "name": "Why do my Roanoke driveway cracks come back every spring?",
-            "acceptedAnswer": {
-              "@type": "Answer",
-              "text": "Roanoke and the Blue Ridge see 40+ freeze-thaw cycles per winter. Driveways built with 4-inch stone bases saturate, freeze, pump fines upward, and crack repeatedly. The mountain-grade fix is a 6-inch structural stone base over woven geotextile, paired with PG 70-22 polymer-modified binder."
+              "text": "In 2026, mountain-grade driveway paving ranges from $6–$11 per square foot, depending heavily on the slope, necessary grading, and depth of the crushed stone base required to survive the local climate."
             }
           }
         ]

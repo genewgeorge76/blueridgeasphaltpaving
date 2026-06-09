@@ -2,11 +2,11 @@ const fs = require('fs');
 const path = require('path');
 
 const CITIES = [
-  { slug: 'roanoke-va', name: 'Roanoke, VA' },
-  { slug: 'charlottesville-va', name: 'Charlottesville, VA' },
-  { slug: 'lynchburg-va', name: 'Lynchburg, VA' },
-  { slug: 'hot-springs-va', name: 'Hot Springs, VA' },
-  { slug: 'franklin-wv', name: 'Franklin, WV' }
+  { slug: 'roanoke-va', name: 'Roanoke, VA', landmark: 'the shadow of the Mill Mountain Star', terrain: 'the rugged Roanoke Valley' },
+  { slug: 'charlottesville-va', name: 'Charlottesville, VA', landmark: 'the edge of the Blue Ridge Parkway', terrain: 'the rolling Albemarle County hills' },
+  { slug: 'lynchburg-va', name: 'Lynchburg, VA', landmark: 'the historic James River basin', terrain: 'steep, challenging elevations' },
+  { slug: 'hot-springs-va', name: 'Hot Springs, VA', landmark: 'the legendary Omni Homestead resort', terrain: 'deep Appalachian mountain grades' },
+  { slug: 'franklin-wv', name: 'Franklin, WV', landmark: 'the heart of Pendleton County', terrain: 'severe freeze-thaw mountain corridors' }
 ];
 
 const basePath = path.join(__dirname, 'src', 'app');
@@ -33,10 +33,13 @@ export default function CityPage() {
           Serving ${city.name}
         </div>
         <h1 className="text-5xl md:text-7xl font-black tracking-tighter mb-8 leading-[1.1] uppercase">
-          PREMIUM PAVING IN <span style={{color:'var(--powerhouse-red)'}}>${city.name.toUpperCase()}</span>
+          APPALACHIAN PAVING IN <span style={{color:'var(--powerhouse-red)'}}>${city.name.toUpperCase()}</span>
         </h1>
-        <p className="text-xl text-slate-400 font-light max-w-3xl mx-auto">
-          Serving the entire ${city.name} corridor with heritage craftsmanship and institutional performance.
+        <p className="text-xl text-slate-400 font-light max-w-3xl mx-auto mb-6">
+          Serving the entire ${city.name} corridor from \${city.landmark} to \${city.terrain}.
+        </p>
+        <p className="text-lg text-slate-500 font-light max-w-3xl mx-auto">
+          We engineer heavy-duty asphalt solutions designed specifically for mountain grades, rural properties, and the severe freeze-thaw cycles of the Virginia Highlands. From steep residential driveways to massive commercial overlays, we deliver structural integrity that lasts.
         </p>
       </div>
 
