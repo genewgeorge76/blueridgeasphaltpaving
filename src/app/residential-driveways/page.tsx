@@ -15,7 +15,7 @@ export default function ResidentialDrivewaysPage() {
       {/* Ultra-Premium Hero */}
       <section className="hero" style={{ position: 'relative', height: '80vh', display: 'flex', alignItems: 'center', overflow: 'hidden' }}>
         <Image 
-          src="/images/steep-driveway.png" 
+          src="/images/driveway.png" 
           alt="Steep mountain driveway paving" 
           fill 
           style={{ objectFit: 'cover', objectPosition: 'center' }} 
