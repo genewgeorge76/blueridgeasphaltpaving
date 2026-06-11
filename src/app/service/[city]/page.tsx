@@ -12,8 +12,9 @@ function formatCityName(slug: string) {
   return `${city}, ${state}`;
 }
 
-export async function generateMetadata({ params }: { params: { city: string } }): Promise<Metadata> {
-  const cityName = formatCityName(params.city);
+export async function generateMetadata({ params }: { params: Promise<{ city: string }> }): Promise<Metadata> {
+  const resolvedParams = await params;
+  const cityName = formatCityName(resolvedParams.city);
   if (!cityName) return { title: 'Service Area Not Found' };
 
   return {
@@ -23,8 +24,9 @@ export async function generateMetadata({ params }: { params: { city: string } })
   }
 }
 
-export default function CityServicePage({ params }: { params: { city: string } }) {
-  const cityName = formatCityName(params.city);
+export default async function CityServicePage({ params }: { params: Promise<{ city: string }> }) {
+  const resolvedParams = await params;
+  const cityName = formatCityName(resolvedParams.city);
 
   if (!cityName) {
     notFound();
