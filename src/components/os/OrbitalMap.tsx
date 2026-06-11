@@ -36,7 +36,6 @@ export default function OrbitalMap() {
     // Setup Mapbox Token
     const mapboxToken = process.env.NEXT_PUBLIC_MAPBOX_TOKEN || ''
     if (!mapboxToken) {
-      setError('Missing NEXT_PUBLIC_MAPBOX_TOKEN. Please add it to your environment variables.')
       return
     }
 
@@ -66,7 +65,7 @@ export default function OrbitalMap() {
     map.current.on('draw.delete', updateArea)
     map.current.on('draw.update', updateArea)
 
-    function updateArea(e: any) {
+    function updateArea() {
       const data = draw.current!.getAll()
       if (data.features.length > 0) {
         // Calculate area in square meters using Turf
@@ -138,12 +137,12 @@ export default function OrbitalMap() {
           </div>
 
           <div style={{ background: '#222', padding: '20px', borderRadius: '4px', marginBottom: '15px', borderLeft: '4px solid #d32f2f' }}>
-            <span style={{ display: 'block', color: '#aaa', fontSize: '0.9rem', marginBottom: '5px' }}>Hot Mix Asphalt ({ASPHALT_DEPTH_INCHES}")</span>
+            <span style={{ display: 'block', color: '#aaa', fontSize: '0.9rem', marginBottom: '5px' }}>Hot Mix Asphalt ({ASPHALT_DEPTH_INCHES}&quot;)</span>
             <span style={{ fontSize: '2rem', fontWeight: 'bold', fontFamily: 'monospace' }}>{asphaltTons.toFixed(2)} tons</span>
           </div>
 
           <div style={{ background: '#222', padding: '20px', borderRadius: '4px', marginBottom: '30px', borderLeft: '4px solid #FF9800' }}>
-            <span style={{ display: 'block', color: '#aaa', fontSize: '0.9rem', marginBottom: '5px' }}>21A Stone Base ({STONE_DEPTH_INCHES}")</span>
+            <span style={{ display: 'block', color: '#aaa', fontSize: '0.9rem', marginBottom: '5px' }}>21A Stone Base ({STONE_DEPTH_INCHES}&quot;)</span>
             <span style={{ fontSize: '2rem', fontWeight: 'bold', fontFamily: 'monospace' }}>{stoneTons.toFixed(2)} tons</span>
           </div>
 

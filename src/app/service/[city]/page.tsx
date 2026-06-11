@@ -17,7 +17,7 @@ export async function generateMetadata({ params }: { params: { city: string } })
   if (!cityName) return { title: 'Service Area Not Found' };
 
   return {
-    title: `Premium Asphalt Paving Contractor in ${cityName} | Blue Ridge Estate Paving`,
+    title: `Asphalt Paving in ${cityName} | Blue Ridge`,
     description: `The leading 4th-generation asphalt paving contractor serving ${cityName}. We engineer heavy-duty rural driveways, commercial parking lots, and tar and chip surfacing to survive the Appalachian climate.`,
     keywords: `Asphalt Paving ${cityName}, Driveway Paving ${cityName}, Commercial Paving ${cityName}, Tar and Chip ${cityName}, Sealcoating ${cityName}`,
   }
@@ -57,7 +57,7 @@ export default function CityServicePage({ params }: { params: { city: string } }
             As a 4th-generation paving company, <strong style={{ color: 'var(--pure-white)' }}>Blue Ridge Estate Paving</strong> does not guess tonnage or skimp on aggregate base. Every driveway and commercial lot we construct in {cityName} begins with a highly compacted, heavy-duty #21A crushed stone subbase. 
           </p>
           <p style={{ fontSize: '1.25rem', color: 'var(--text-secondary)', lineHeight: '1.9', marginBottom: '20px', borderLeft: '4px solid var(--powerhouse-red)', paddingLeft: '20px' }}>
-            <strong>Deep Rural Coverage:</strong> We don't just stay inside the city limits. We actively seek out the back mountain roads, farm lanes, and deep highland switchbacks surrounding {cityName}. If you live miles off the main highway, we have the heavy equipment to reach you and build a permanent, washout-proof road.
+            <strong>Deep Rural Coverage:</strong> We don&apos;t just stay inside the city limits. We actively seek out the back mountain roads, farm lanes, and deep highland switchbacks surrounding {cityName}. If you live miles off the main highway, we have the heavy equipment to reach you and build a permanent, washout-proof road.
           </p>
           <p style={{ fontSize: '1.25rem', color: 'var(--text-secondary)', lineHeight: '1.9' }}>
             Whether you need a massive commercial overlay, precision asphalt milling, or a highly-textured Tar and Chip rural driveway for maximum mountain traction, we deploy our commercial fleet with absolute mathematical precision.

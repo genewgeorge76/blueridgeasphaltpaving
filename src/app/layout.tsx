@@ -1,12 +1,36 @@
 import type { Metadata } from 'next'
 import './globals.css'
 import { Phone, MapPin } from 'lucide-react'
+import Link from 'next/link'
 import GeoSchema from '@/components/GeoSchema'
 
 export const metadata: Metadata = {
+  metadataBase: new URL('https://blueridgeasphaltpaving.com'),
   title: 'Blue Ridge Estate Paving | Appalachian Mountain-Grade Paving',
   description: 'Top-rated asphalt paving contractor in Roanoke, Charlottesville & the Virginia Highlands. Skip the wait and get an instant AI Satellite Scan for your mountain, rural, or commercial project.',
   keywords: 'Asphalt Paving, Steep Driveways, Sealcoating, Blue Ridge Estate Paving, Rural Paving, Mountain-Grade Asphalt, Virginia Highlands',
+  openGraph: {
+    title: 'Blue Ridge Estate Paving | Appalachian Mountain-Grade Paving',
+    description: 'Top-rated asphalt paving contractor in Roanoke, Charlottesville & the Virginia Highlands.',
+    url: 'https://blueridgeasphaltpaving.com',
+    siteName: 'Blue Ridge Estate Paving',
+    images: [
+      {
+        url: '/images/hero.png',
+        width: 1200,
+        height: 630,
+        alt: 'Heavy Commercial Asphalt Paving Operation in Virginia',
+      },
+    ],
+    locale: 'en_US',
+    type: 'website',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Blue Ridge Estate Paving | Appalachian Mountain-Grade Paving',
+    description: 'Top-rated asphalt paving contractor in Roanoke, Charlottesville & the Virginia Highlands.',
+    images: ['/images/hero.png'],
+  },
 }
 
 export default function RootLayout({
@@ -38,18 +62,18 @@ export default function RootLayout({
         {/* The White & Red Navbar */}
         <nav className="navbar">
           <div className="logo">
-            <a href="/" style={{ textDecoration: 'none', color: 'inherit', display: 'flex', alignItems: 'center', gap: '10px' }}>
+            <Link href="/" style={{ textDecoration: 'none', color: 'inherit', display: 'flex', alignItems: 'center', gap: '10px' }}>
               BLUE RIDGE <span style={{ color: 'var(--powerhouse-red)' }}>ESTATE PAVING</span>
-            </a>
+            </Link>
           </div>
           <div className="nav-links">
-            <a href="/commercial-paving" className="nav-link">Commercial</a>
-            <a href="/residential-driveways" className="nav-link">Residential</a>
-            <a href="/tar-and-chip" className="nav-link">Tar & Chip</a>
-            <a href="/asphalt-milling" className="nav-link">Milling</a>
-            <a href="/sealcoating-maintenance" className="nav-link">Maintenance</a>
-            <a href="/insights" className="nav-link" style={{ color: 'var(--estate-gold)' }}>Insights</a>
-            <a href="/#contact" className="btn-primary">Get a Quote</a>
+            <Link href="/commercial-paving" className="nav-link">Commercial</Link>
+            <Link href="/residential-driveways" className="nav-link">Residential</Link>
+            <Link href="/tar-and-chip" className="nav-link">Tar & Chip</Link>
+            <Link href="/asphalt-milling" className="nav-link">Milling</Link>
+            <Link href="/sealcoating-maintenance" className="nav-link">Maintenance</Link>
+            <Link href="/insights" className="nav-link" style={{ color: 'var(--estate-gold)' }}>Insights</Link>
+            <Link href="/#contact" className="btn-primary">Get a Quote</Link>
           </div>
         </nav>
         
@@ -71,37 +95,37 @@ export default function RootLayout({
             <div className="footer-col">
               <h3>National-Grade Services</h3>
               <ul style={{ listStyle: 'none', padding: 0, marginTop: '20px', display: 'flex', flexDirection: 'column', gap: '10px' }}>
-                <li><a href="/commercial-paving" style={{ color: '#aaa', textDecoration: 'none' }}>Commercial Paving</a></li>
-                <li><a href="/residential-driveways" style={{ color: '#aaa', textDecoration: 'none' }}>Steep Residential Driveways</a></li>
-                <li><a href="/tar-and-chip" style={{ color: '#aaa', textDecoration: 'none' }}>Tar & Chip Paving</a></li>
-                <li><a href="/sealcoating-maintenance" style={{ color: '#aaa', textDecoration: 'none' }}>Appalachian Sealcoating</a></li>
-                <li><a href="/asphalt-milling" style={{ color: '#aaa', textDecoration: 'none' }}>Asphalt Milling</a></li>
+                <li><Link href="/commercial-paving" style={{ color: '#aaa', textDecoration: 'none' }}>Commercial Paving</Link></li>
+                <li><Link href="/residential-driveways" style={{ color: '#aaa', textDecoration: 'none' }}>Steep Residential Driveways</Link></li>
+                <li><Link href="/tar-and-chip" style={{ color: '#aaa', textDecoration: 'none' }}>Tar & Chip Paving</Link></li>
+                <li><Link href="/sealcoating-maintenance" style={{ color: '#aaa', textDecoration: 'none' }}>Appalachian Sealcoating</Link></li>
+                <li><Link href="/asphalt-milling" style={{ color: '#aaa', textDecoration: 'none' }}>Asphalt Milling</Link></li>
               </ul>
             </div>
             <div className="footer-col" style={{ flex: '2 1 400px' }}>
               <h3>Highland & Rural Service Areas</h3>
               <ul style={{ listStyle: 'none', padding: 0, marginTop: '20px', display: 'grid', gridTemplateColumns: '1fr 1fr 1fr', gap: '8px', fontSize: '0.9rem' }}>
-                <li><a href="/service/roanoke-va" style={{ color: '#aaa', textDecoration: 'none' }}>Roanoke, VA</a></li>
-                <li><a href="/service/charlottesville-va" style={{ color: '#aaa', textDecoration: 'none' }}>Charlottesville, VA</a></li>
-                <li><a href="/service/winchester-va" style={{ color: '#aaa', textDecoration: 'none' }}>Winchester, VA</a></li>
-                <li><a href="/service/monterey-va" style={{ color: '#aaa', textDecoration: 'none' }}>Monterey, VA</a></li>
-                <li><a href="/service/staunton-va" style={{ color: '#aaa', textDecoration: 'none' }}>Staunton, VA</a></li>
-                <li><a href="/service/harrisonburg-va" style={{ color: '#aaa', textDecoration: 'none' }}>Harrisonburg, VA</a></li>
-                <li><a href="/service/lexington-va" style={{ color: '#aaa', textDecoration: 'none' }}>Lexington, VA</a></li>
-                <li><a href="/service/waynesboro-va" style={{ color: '#aaa', textDecoration: 'none' }}>Waynesboro, VA</a></li>
-                <li><a href="/service/hot-springs-va" style={{ color: '#aaa', textDecoration: 'none' }}>Hot Springs, VA</a></li>
-                <li><a href="/service/warm-springs-va" style={{ color: '#aaa', textDecoration: 'none' }}>Warm Springs, VA</a></li>
-                <li><a href="/service/clifton-forge-va" style={{ color: '#aaa', textDecoration: 'none' }}>Clifton Forge, VA</a></li>
-                <li><a href="/service/covington-va" style={{ color: '#aaa', textDecoration: 'none' }}>Covington, VA</a></li>
-                <li><a href="/service/luray-va" style={{ color: '#aaa', textDecoration: 'none' }}>Luray, VA</a></li>
-                <li><a href="/service/front-royal-va" style={{ color: '#aaa', textDecoration: 'none' }}>Front Royal, VA</a></li>
-                <li><a href="/service/buchanan-va" style={{ color: '#aaa', textDecoration: 'none' }}>Buchanan, VA</a></li>
-                <li><a href="/service/fincastle-va" style={{ color: '#aaa', textDecoration: 'none' }}>Fincastle, VA</a></li>
-                <li><a href="/service/crozet-va" style={{ color: '#aaa', textDecoration: 'none' }}>Crozet, VA</a></li>
-                <li><a href="/service/new-market-va" style={{ color: '#aaa', textDecoration: 'none' }}>New Market, VA</a></li>
-                <li><a href="/service/woodstock-va" style={{ color: '#aaa', textDecoration: 'none' }}>Woodstock, VA</a></li>
-                <li><a href="/service/strasburg-va" style={{ color: '#aaa', textDecoration: 'none' }}>Strasburg, VA</a></li>
-                <li><a href="/service/franklin-wv" style={{ color: '#aaa', textDecoration: 'none' }}>Franklin, WV</a></li>
+                <li><Link href="/service/roanoke-va" style={{ color: '#aaa', textDecoration: 'none' }}>Roanoke, VA</Link></li>
+                <li><Link href="/service/charlottesville-va" style={{ color: '#aaa', textDecoration: 'none' }}>Charlottesville, VA</Link></li>
+                <li><Link href="/service/winchester-va" style={{ color: '#aaa', textDecoration: 'none' }}>Winchester, VA</Link></li>
+                <li><Link href="/service/monterey-va" style={{ color: '#aaa', textDecoration: 'none' }}>Monterey, VA</Link></li>
+                <li><Link href="/service/staunton-va" style={{ color: '#aaa', textDecoration: 'none' }}>Staunton, VA</Link></li>
+                <li><Link href="/service/harrisonburg-va" style={{ color: '#aaa', textDecoration: 'none' }}>Harrisonburg, VA</Link></li>
+                <li><Link href="/service/lexington-va" style={{ color: '#aaa', textDecoration: 'none' }}>Lexington, VA</Link></li>
+                <li><Link href="/service/waynesboro-va" style={{ color: '#aaa', textDecoration: 'none' }}>Waynesboro, VA</Link></li>
+                <li><Link href="/service/hot-springs-va" style={{ color: '#aaa', textDecoration: 'none' }}>Hot Springs, VA</Link></li>
+                <li><Link href="/service/warm-springs-va" style={{ color: '#aaa', textDecoration: 'none' }}>Warm Springs, VA</Link></li>
+                <li><Link href="/service/clifton-forge-va" style={{ color: '#aaa', textDecoration: 'none' }}>Clifton Forge, VA</Link></li>
+                <li><Link href="/service/covington-va" style={{ color: '#aaa', textDecoration: 'none' }}>Covington, VA</Link></li>
+                <li><Link href="/service/luray-va" style={{ color: '#aaa', textDecoration: 'none' }}>Luray, VA</Link></li>
+                <li><Link href="/service/front-royal-va" style={{ color: '#aaa', textDecoration: 'none' }}>Front Royal, VA</Link></li>
+                <li><Link href="/service/buchanan-va" style={{ color: '#aaa', textDecoration: 'none' }}>Buchanan, VA</Link></li>
+                <li><Link href="/service/fincastle-va" style={{ color: '#aaa', textDecoration: 'none' }}>Fincastle, VA</Link></li>
+                <li><Link href="/service/crozet-va" style={{ color: '#aaa', textDecoration: 'none' }}>Crozet, VA</Link></li>
+                <li><Link href="/service/new-market-va" style={{ color: '#aaa', textDecoration: 'none' }}>New Market, VA</Link></li>
+                <li><Link href="/service/woodstock-va" style={{ color: '#aaa', textDecoration: 'none' }}>Woodstock, VA</Link></li>
+                <li><Link href="/service/strasburg-va" style={{ color: '#aaa', textDecoration: 'none' }}>Strasburg, VA</Link></li>
+                <li><Link href="/service/franklin-wv" style={{ color: '#aaa', textDecoration: 'none' }}>Franklin, WV</Link></li>
               </ul>
             </div>
           </div>

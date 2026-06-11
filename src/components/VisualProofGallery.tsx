@@ -30,7 +30,7 @@ export default function VisualProofGallery() {
       <div style={{ maxWidth: '1400px', margin: '0 auto' }}>
         <h2 style={{ fontSize: '3rem', marginBottom: '10px', color: 'var(--estate-gold)' }}>Visual Proof of Execution</h2>
         <p style={{ fontSize: '1.2rem', color: '#aaa', marginBottom: '40px', maxWidth: '800px' }}>
-          We don't just talk about engineering excellence; we document it. View our heavy fleet in action across commercial and residential deployments in the Virginia market.
+          We don&apos;t just talk about engineering excellence; we document it. View our heavy fleet in action across commercial and residential deployments in the Virginia market.
         </p>
 
         <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: '20px' }}>

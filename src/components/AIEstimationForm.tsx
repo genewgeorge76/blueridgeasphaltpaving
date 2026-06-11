@@ -25,7 +25,7 @@ export default function AIEstimationForm({ location = 'Virginia' }: { location?:
       } else {
         setStatus('error')
       }
-    } catch (error) {
+    } catch {
       setStatus('error')
     }
   }
