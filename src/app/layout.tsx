@@ -5,14 +5,14 @@ import Link from 'next/link'
 import GeoSchema from '@/components/GeoSchema'
 
 export const metadata: Metadata = {
-  metadataBase: new URL('https://blueridgeasphaltpaving.com'),
+  metadataBase: new URL('https://www.blueridgeasphaltpaving.com'),
   title: 'Blue Ridge Estate Paving | Appalachian Mountain-Grade Paving',
   description: 'Top-rated asphalt paving contractor in Roanoke, Charlottesville & the Virginia Highlands. Skip the wait and get an instant AI Satellite Scan for your mountain, rural, or commercial project.',
   keywords: 'Asphalt Paving, Steep Driveways, Sealcoating, Blue Ridge Estate Paving, Rural Paving, Mountain-Grade Asphalt, Virginia Highlands',
   openGraph: {
     title: 'Blue Ridge Estate Paving | Appalachian Mountain-Grade Paving',
     description: 'Top-rated asphalt paving contractor in Roanoke, Charlottesville & the Virginia Highlands.',
-    url: 'https://blueridgeasphaltpaving.com',
+    url: 'https://www.blueridgeasphaltpaving.com',
     siteName: 'Blue Ridge Estate Paving',
     images: [
       {
