@@ -39,9 +39,11 @@ export default async function InsightPost({ params }: { params: Promise<{ slug: 
         </div>
       </section>
 
-      <article style={{ padding: '80px 40px', maxWidth: '1000px', margin: '0 auto', fontSize: '1.2rem', lineHeight: '1.8', color: '#333' }} className="markdown-content">
-        <div dangerouslySetInnerHTML={{ __html: insightData.contentHtml || '' }} />
-      </article>
+      <div style={{ backgroundColor: '#ffffff', width: '100%', borderTop: '4px solid var(--estate-gold)' }}>
+        <article style={{ padding: '80px 40px', maxWidth: '1000px', margin: '0 auto', fontSize: '1.2rem', lineHeight: '1.8', color: '#1a1a1a' }} className="markdown-content">
+          <div dangerouslySetInnerHTML={{ __html: insightData.contentHtml || '' }} />
+        </article>
+      </div>
 
       <section style={{ background: 'var(--carbon-black)', padding: '60px 40px', textAlign: 'center', color: 'white' }}>
         <h2 style={{ fontSize: '3rem', fontFamily: 'Bebas Neue', marginBottom: '20px' }}>Ready for Elite Paving Engineering?</h2>
@@ -54,10 +56,10 @@ export default async function InsightPost({ params }: { params: Promise<{ slug: 
       <style>{`
         .markdown-content h2 {
           font-size: 2.5rem;
-          font-family: 'Bebas Neue', sans-serif;
+          font-family: 'Outfit', sans-serif;
           margin-top: 40px;
           margin-bottom: 20px;
-          color: #111;
+          color: #000;
         }
         .markdown-content h3 {
           font-size: 1.5rem;

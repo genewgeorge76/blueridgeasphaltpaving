@@ -29,9 +29,9 @@ export default function InsightsPage() {
                 </div>
                 <div style={{ padding: '30px' }}>
                   <p style={{ color: 'var(--powerhouse-red)', fontWeight: 'bold', fontSize: '0.9rem', marginBottom: '10px' }}>{new Date(date).toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' })}</p>
-                  <h2 style={{ fontSize: '1.5rem', marginBottom: '10px', lineHeight: '1.3' }}>{title}</h2>
+                  <h2 style={{ fontSize: '1.5rem', marginBottom: '10px', lineHeight: '1.3', color: '#111' }}>{title}</h2>
                   {author && <p style={{ fontSize: '0.9rem', color: 'var(--estate-gold)', marginBottom: '15px', fontWeight: 'bold', letterSpacing: '1px' }}>AUTHOR: {author}</p>}
-                  <p style={{ color: 'var(--text-secondary)', lineHeight: '1.6' }}>{description}</p>
+                  <p style={{ color: '#555', lineHeight: '1.6' }}>{description}</p>
                   <div style={{ marginTop: '20px', display: 'inline-block', fontWeight: 'bold', borderBottom: '2px solid var(--powerhouse-red)' }}>Read Case Study</div>
                 </div>
               </div>
