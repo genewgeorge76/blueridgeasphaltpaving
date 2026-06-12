@@ -9,6 +9,9 @@ export const metadata: Metadata = {
   title: 'Blue Ridge Estate Paving | Appalachian Mountain-Grade Paving',
   description: 'Top-rated asphalt paving contractor in Roanoke, Charlottesville & the Virginia Highlands. Skip the wait and get an instant AI Satellite Scan for your mountain, rural, or commercial project.',
   keywords: 'Asphalt Paving, Steep Driveways, Sealcoating, Blue Ridge Estate Paving, Rural Paving, Mountain-Grade Asphalt, Virginia Highlands',
+  verification: {
+    google: 'DjBvZDUBT9eNyyLyNr9j61Sg4yqsXBdM10SrJes5u-Y',
+  },
   openGraph: {
     title: 'Blue Ridge Estate Paving | Appalachian Mountain-Grade Paving',
     description: 'Top-rated asphalt paving contractor in Roanoke, Charlottesville & the Virginia Highlands.',
