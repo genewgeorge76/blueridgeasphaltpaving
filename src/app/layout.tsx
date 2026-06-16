@@ -160,6 +160,12 @@ export default function RootLayout({
                 <li><Link href="/service/timberville-va" style={{ color: '#aaa', textDecoration: 'none' }}>Timberville, VA</Link></li>
                 <li><Link href="/service/broadway-va" style={{ color: '#aaa', textDecoration: 'none' }}>Broadway, VA</Link></li>
                 <li><Link href="/service/highlands-va" style={{ color: 'var(--estate-gold)', textDecoration: 'none', fontWeight: 'bold' }}>Highlands, VA</Link></li>
+                <li><Link href="/service/churchville-va" style={{ color: '#aaa', textDecoration: 'none' }}>Churchville, VA</Link></li>
+                <li><Link href="/service/williamsville-va" style={{ color: '#aaa', textDecoration: 'none' }}>Williamsville, VA</Link></li>
+                <li><Link href="/service/swoope-va" style={{ color: '#aaa', textDecoration: 'none' }}>Swoope, VA</Link></li>
+                <li><Link href="/service/deerfield-va" style={{ color: '#aaa', textDecoration: 'none' }}>Deerfield, VA</Link></li>
+                <li><Link href="/service/middlebrook-va" style={{ color: '#aaa', textDecoration: 'none' }}>Middlebrook, VA</Link></li>
+                <li><Link href="/service/mount-solon-va" style={{ color: '#aaa', textDecoration: 'none' }}>Mount Solon, VA</Link></li>
                 <li><Link href="/service/franklin-wv" style={{ color: '#aaa', textDecoration: 'none' }}>Franklin, WV</Link></li>
               </ul>
             </div>

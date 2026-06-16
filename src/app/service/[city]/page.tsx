@@ -15,7 +15,8 @@ const cities = [
   'bolar-va', 'mcdowell-va', 'mustoe-va', 'hightown-va', 'blue-grass-va',
   'doe-hill-va', 'sugar-grove-va', 'fort-defiance-va', 'mount-sidney-va', 'grottoes-va',
   'elkton-va', 'mcgaheysville-va', 'massanutten-va', 'timberville-va', 'broadway-va',
-  'highlands-va', 'franklin-wv'
+  'highlands-va', 'franklin-wv', 'churchville-va', 'williamsville-va', 'swoope-va',
+  'deerfield-va', 'middlebrook-va', 'mount-solon-va'
 ];
 
 export async function generateStaticParams() {
@@ -49,8 +50,8 @@ function getGeographicContext(city: string) {
     return "From the rolling hills of Charlottesville to the steep mountain inclines of Wintergreen, we engineer pavement that resists downward creep during Virginia's brutal summer heat, utilizing specific PG 70-22 polymer-modified binders.";
   }
 
-  if (['monterey', 'franklin', 'mcdowell', 'blue-grass', 'hightown'].some(c => lowerCity.includes(c))) {
-    return "Operating in extreme high-elevation areas requires a different class of paving. We bring massive, 80,000lb-rated commercial engineering to these isolated mountain crossroads, ensuring your driveway or access road never washes out during severe Appalachian storms.";
+  if (['monterey', 'franklin', 'mcdowell', 'blue-grass', 'hightown', 'churchville', 'williamsville', 'swoope', 'deerfield', 'mount-solon'].some(c => lowerCity.includes(c))) {
+    return "Whether it's paving near the Churchville Post Office, handling the steep grades out in Williamsville, or working across the border in Franklin, WV, operating in rural, high-elevation areas requires a different class of paving. We bring massive, 80,000lb-rated commercial engineering to these isolated mountain crossroads, ensuring your driveway or access road never washes out during severe Appalachian storms.";
   }
 
   // Shenandoah Valley Default

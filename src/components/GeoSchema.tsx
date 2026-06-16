@@ -62,6 +62,12 @@ export default function GeoSchema() {
           { "@type": "City", "name": "Timberville", "addressRegion": "VA" },
           { "@type": "City", "name": "Broadway", "addressRegion": "VA" },
           { "@type": "City", "name": "Highlands", "addressRegion": "VA" },
+          { "@type": "City", "name": "Churchville", "addressRegion": "VA" },
+          { "@type": "City", "name": "Williamsville", "addressRegion": "VA" },
+          { "@type": "City", "name": "Swoope", "addressRegion": "VA" },
+          { "@type": "City", "name": "Deerfield", "addressRegion": "VA" },
+          { "@type": "City", "name": "Middlebrook", "addressRegion": "VA" },
+          { "@type": "City", "name": "Mount Solon", "addressRegion": "VA" },
           { "@type": "City", "name": "Franklin", "addressRegion": "WV" }
         ],
         "hasOfferCatalog": {
