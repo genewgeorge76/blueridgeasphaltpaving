@@ -70,6 +70,7 @@ export default function RootLayout({
             </Link>
           </div>
           <div className="nav-links">
+            <Link href="/our-legacy" className="nav-link">Our Legacy</Link>
             <Link href="/commercial-paving" className="nav-link">Commercial</Link>
             <Link href="/residential-driveways" className="nav-link">Residential</Link>
             <Link href="/tar-and-chip" className="nav-link">Tar & Chip</Link>
@@ -107,7 +108,7 @@ export default function RootLayout({
             </div>
             <div className="footer-col" style={{ flex: '2 1 400px' }}>
               <h3>Highland & Rural Service Areas</h3>
-              <ul style={{ listStyle: 'none', padding: 0, marginTop: '20px', display: 'grid', gridTemplateColumns: '1fr 1fr 1fr', gap: '8px', fontSize: '0.9rem' }}>
+              <ul style={{ listStyle: 'none', padding: 0, marginTop: '20px', display: 'grid', gridTemplateColumns: '1fr 1fr 1fr 1fr', gap: '8px', fontSize: '0.85rem' }}>
                 <li><Link href="/service/roanoke-va" style={{ color: '#aaa', textDecoration: 'none' }}>Roanoke, VA</Link></li>
                 <li><Link href="/service/charlottesville-va" style={{ color: '#aaa', textDecoration: 'none' }}>Charlottesville, VA</Link></li>
                 <li><Link href="/service/winchester-va" style={{ color: '#aaa', textDecoration: 'none' }}>Winchester, VA</Link></li>
@@ -128,6 +129,37 @@ export default function RootLayout({
                 <li><Link href="/service/new-market-va" style={{ color: '#aaa', textDecoration: 'none' }}>New Market, VA</Link></li>
                 <li><Link href="/service/woodstock-va" style={{ color: '#aaa', textDecoration: 'none' }}>Woodstock, VA</Link></li>
                 <li><Link href="/service/strasburg-va" style={{ color: '#aaa', textDecoration: 'none' }}>Strasburg, VA</Link></li>
+                <li><Link href="/service/troutville-va" style={{ color: '#aaa', textDecoration: 'none' }}>Troutville, VA</Link></li>
+                <li><Link href="/service/natural-bridge-va" style={{ color: '#aaa', textDecoration: 'none' }}>Natural Bridge, VA</Link></li>
+                <li><Link href="/service/goshen-va" style={{ color: '#aaa', textDecoration: 'none' }}>Goshen, VA</Link></li>
+                <li><Link href="/service/craigsville-va" style={{ color: '#aaa', textDecoration: 'none' }}>Craigsville, VA</Link></li>
+                <li><Link href="/service/fairfield-va" style={{ color: '#aaa', textDecoration: 'none' }}>Fairfield, VA</Link></li>
+                <li><Link href="/service/afton-va" style={{ color: '#aaa', textDecoration: 'none' }}>Afton, VA</Link></li>
+                <li><Link href="/service/wintergreen-va" style={{ color: '#aaa', textDecoration: 'none' }}>Wintergreen, VA</Link></li>
+                <li><Link href="/service/nellysford-va" style={{ color: '#aaa', textDecoration: 'none' }}>Nellysford, VA</Link></li>
+                <li><Link href="/service/lovingston-va" style={{ color: '#aaa', textDecoration: 'none' }}>Lovingston, VA</Link></li>
+                <li><Link href="/service/raphine-va" style={{ color: '#aaa', textDecoration: 'none' }}>Raphine, VA</Link></li>
+                <li><Link href="/service/steeles-tavern-va" style={{ color: '#aaa', textDecoration: 'none' }}>Steeles Tavern, VA</Link></li>
+                <li><Link href="/service/vesuvius-va" style={{ color: '#aaa', textDecoration: 'none' }}>Vesuvius, VA</Link></li>
+                <li><Link href="/service/eagle-rock-va" style={{ color: '#aaa', textDecoration: 'none' }}>Eagle Rock, VA</Link></li>
+                <li><Link href="/service/iron-gate-va" style={{ color: '#aaa', textDecoration: 'none' }}>Iron Gate, VA</Link></li>
+                <li><Link href="/service/millboro-va" style={{ color: '#aaa', textDecoration: 'none' }}>Millboro, VA</Link></li>
+                <li><Link href="/service/bolar-va" style={{ color: '#aaa', textDecoration: 'none' }}>Bolar, VA</Link></li>
+                <li><Link href="/service/mcdowell-va" style={{ color: '#aaa', textDecoration: 'none' }}>McDowell, VA</Link></li>
+                <li><Link href="/service/mustoe-va" style={{ color: '#aaa', textDecoration: 'none' }}>Mustoe, VA</Link></li>
+                <li><Link href="/service/hightown-va" style={{ color: '#aaa', textDecoration: 'none' }}>Hightown, VA</Link></li>
+                <li><Link href="/service/blue-grass-va" style={{ color: '#aaa', textDecoration: 'none' }}>Blue Grass, VA</Link></li>
+                <li><Link href="/service/doe-hill-va" style={{ color: '#aaa', textDecoration: 'none' }}>Doe Hill, VA</Link></li>
+                <li><Link href="/service/sugar-grove-va" style={{ color: '#aaa', textDecoration: 'none' }}>Sugar Grove, VA</Link></li>
+                <li><Link href="/service/fort-defiance-va" style={{ color: '#aaa', textDecoration: 'none' }}>Fort Defiance, VA</Link></li>
+                <li><Link href="/service/mount-sidney-va" style={{ color: '#aaa', textDecoration: 'none' }}>Mount Sidney, VA</Link></li>
+                <li><Link href="/service/grottoes-va" style={{ color: '#aaa', textDecoration: 'none' }}>Grottoes, VA</Link></li>
+                <li><Link href="/service/elkton-va" style={{ color: '#aaa', textDecoration: 'none' }}>Elkton, VA</Link></li>
+                <li><Link href="/service/mcgaheysville-va" style={{ color: '#aaa', textDecoration: 'none' }}>McGaheysville, VA</Link></li>
+                <li><Link href="/service/massanutten-va" style={{ color: '#aaa', textDecoration: 'none' }}>Massanutten, VA</Link></li>
+                <li><Link href="/service/timberville-va" style={{ color: '#aaa', textDecoration: 'none' }}>Timberville, VA</Link></li>
+                <li><Link href="/service/broadway-va" style={{ color: '#aaa', textDecoration: 'none' }}>Broadway, VA</Link></li>
+                <li><Link href="/service/highlands-va" style={{ color: 'var(--estate-gold)', textDecoration: 'none', fontWeight: 'bold' }}>Highlands, VA</Link></li>
                 <li><Link href="/service/franklin-wv" style={{ color: '#aaa', textDecoration: 'none' }}>Franklin, WV</Link></li>
               </ul>
             </div>

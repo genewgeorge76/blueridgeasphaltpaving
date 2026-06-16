@@ -2,6 +2,27 @@ import type { Metadata } from 'next'
 import AIEstimationForm from '@/components/AIEstimationForm'
 import VisualProofGallery from '@/components/VisualProofGallery'
 import { notFound } from 'next/navigation'
+import Image from 'next/image'
+
+const cities = [
+  'roanoke-va', 'charlottesville-va', 'winchester-va', 'monterey-va', 'staunton-va',
+  'harrisonburg-va', 'lexington-va', 'waynesboro-va', 'hot-springs-va', 'warm-springs-va',
+  'clifton-forge-va', 'covington-va', 'luray-va', 'front-royal-va', 'buchanan-va',
+  'fincastle-va', 'crozet-va', 'new-market-va', 'woodstock-va', 'strasburg-va',
+  'troutville-va', 'natural-bridge-va', 'goshen-va', 'craigsville-va', 'fairfield-va',
+  'afton-va', 'wintergreen-va', 'nellysford-va', 'lovingston-va', 'raphine-va',
+  'steeles-tavern-va', 'vesuvius-va', 'eagle-rock-va', 'iron-gate-va', 'millboro-va',
+  'bolar-va', 'mcdowell-va', 'mustoe-va', 'hightown-va', 'blue-grass-va',
+  'doe-hill-va', 'sugar-grove-va', 'fort-defiance-va', 'mount-sidney-va', 'grottoes-va',
+  'elkton-va', 'mcgaheysville-va', 'massanutten-va', 'timberville-va', 'broadway-va',
+  'highlands-va', 'franklin-wv'
+];
+
+export async function generateStaticParams() {
+  return cities.map((city) => ({
+    city: city,
+  }))
+}
 
 // Helper to format the slug into a beautiful city name
 function formatCityName(slug: string) {
@@ -12,6 +33,30 @@ function formatCityName(slug: string) {
   return `${city}, ${state}`;
 }
 
+// HCU / Geographic Context Engine
+function getGeographicContext(city: string) {
+  const lowerCity = city.toLowerCase();
+  
+  if (lowerCity.includes('highlands')) {
+    return "The Highlands are our backyard. In fact, our founder has been paving the Highlands of Virginia since he was 15 years old alongside his grandfather. We know exactly how the elevation changes and severe winter weather here destroy standard pavement, which is why we only engineer heavy-duty structural asphalt for this specific region.";
+  }
+  
+  if (['roanoke', 'troutville', 'buchanan', 'fincastle', 'eagle-rock'].some(c => lowerCity.includes(c))) {
+    return "The topography of the Roanoke Valley and its surrounding crossroads demands aggressive water diversion. We construct high-grade asphalt swales and deploy deep VDOT #21A stone bases to ensure your pavement survives the rapid freeze-thaw cycles that trap moisture in the valley.";
+  }
+
+  if (['charlottesville', 'crozet', 'afton', 'wintergreen'].some(c => lowerCity.includes(c))) {
+    return "From the rolling hills of Charlottesville to the steep mountain inclines of Wintergreen, we engineer pavement that resists downward creep during Virginia's brutal summer heat, utilizing specific PG 70-22 polymer-modified binders.";
+  }
+
+  if (['monterey', 'franklin', 'mcdowell', 'blue-grass', 'hightown'].some(c => lowerCity.includes(c))) {
+    return "Operating in extreme high-elevation areas requires a different class of paving. We bring massive, 80,000lb-rated commercial engineering to these isolated mountain crossroads, ensuring your driveway or access road never washes out during severe Appalachian storms.";
+  }
+
+  // Shenandoah Valley Default
+  return "The Shenandoah Valley and its surrounding foothills require specialized aggregate subgrades. We actively seek out the back mountain roads, farm lanes, and deep highland switchbacks in your area to build permanent, washout-proof roads.";
+}
+
 export async function generateMetadata({ params }: { params: Promise<{ city: string }> }): Promise<Metadata> {
   const resolvedParams = await params;
   const cityName = formatCityName(resolvedParams.city);
@@ -20,13 +65,14 @@ export async function generateMetadata({ params }: { params: Promise<{ city: str
   return {
     title: `Asphalt Paving in ${cityName} | Blue Ridge`,
     description: `The leading 4th-generation asphalt paving contractor serving ${cityName}. We engineer heavy-duty rural driveways, commercial parking lots, and tar and chip surfacing to survive the Appalachian climate.`,
-    keywords: `Asphalt Paving ${cityName}, Driveway Paving ${cityName}, Commercial Paving ${cityName}, Tar and Chip ${cityName}, Sealcoating ${cityName}`,
+    keywords: `Asphalt Paving ${cityName}, Driveway Paving ${cityName}, Commercial Paving ${cityName}, Tar and Chip ${cityName}, Sealcoating ${cityName}, Paving Contractor ${cityName}`,
   }
 }
 
 export default async function CityServicePage({ params }: { params: Promise<{ city: string }> }) {
   const resolvedParams = await params;
   const cityName = formatCityName(resolvedParams.city);
+  const geoContext = getGeographicContext(resolvedParams.city);
 
   if (!cityName) {
     notFound();
@@ -48,22 +94,26 @@ export default async function CityServicePage({ params }: { params: Promise<{ ci
         </div>
       </section>
 
-      {/* Premium Content Split */}
+      {/* Premium Content Split with HCU Geo Context */}
       <section style={{ display: 'flex', flexWrap: 'wrap', background: 'var(--bg-primary)' }}>
         <div style={{ flex: '1 1 50%', padding: '100px', display: 'flex', flexDirection: 'column', justifyContent: 'center' }}>
           <h2 className="gold-text" style={{ fontSize: '3rem', marginBottom: '30px', letterSpacing: '-1px' }}>Engineering Flawless Pavement for {cityName}.</h2>
           <p style={{ fontSize: '1.25rem', color: 'var(--text-secondary)', lineHeight: '1.9', marginBottom: '20px' }}>
             Property owners in {cityName} face a unique set of geographic challenges. From steep Appalachian inclines that cause severe water washouts, to brutal winter freeze-thaw cycles that shatter brittle pavement from the inside out. 
           </p>
+          <p style={{ fontSize: '1.25rem', color: 'var(--pure-white)', lineHeight: '1.9', marginBottom: '20px', fontWeight: 'bold' }}>
+            {geoContext}
+          </p>
           <p style={{ fontSize: '1.25rem', color: 'var(--text-secondary)', lineHeight: '1.9', marginBottom: '20px' }}>
             As a 4th-generation paving company, <strong style={{ color: 'var(--pure-white)' }}>Blue Ridge Estate Paving</strong> does not guess tonnage or skimp on aggregate base. Every driveway and commercial lot we construct in {cityName} begins with a highly compacted, heavy-duty #21A crushed stone subbase. 
           </p>
-          <p style={{ fontSize: '1.25rem', color: 'var(--text-secondary)', lineHeight: '1.9', marginBottom: '20px', borderLeft: '4px solid var(--powerhouse-red)', paddingLeft: '20px' }}>
-            <strong>Deep Rural Coverage:</strong> We don&apos;t just stay inside the city limits. We actively seek out the back mountain roads, farm lanes, and deep highland switchbacks surrounding {cityName}. If you live miles off the main highway, we have the heavy equipment to reach you and build a permanent, washout-proof road.
-          </p>
-          <p style={{ fontSize: '1.25rem', color: 'var(--text-secondary)', lineHeight: '1.9' }}>
-            Whether you need a massive commercial overlay, precision asphalt milling, or a highly-textured Tar and Chip rural driveway for maximum mountain traction, we deploy our commercial fleet with absolute mathematical precision.
-          </p>
+          
+          <div className="glass-panel" style={{ padding: '30px', borderLeft: '4px solid var(--estate-gold)', marginTop: '20px' }}>
+            <p style={{ fontSize: '1.15rem', color: 'var(--estate-gold)', fontStyle: 'italic', margin: 0, lineHeight: '1.8' }}>
+              "I have been paving the Highlands and these mountain roads since I was 15 years old working alongside my grandfather. We aren't a pop-up crew—we are a multi-generational Appalachian paving family." <br/>
+              <span style={{ display: 'block', marginTop: '10px', fontWeight: 'bold', color: 'var(--pure-white)' }}>— GW George, Founder</span>
+            </p>
+          </div>
         </div>
         <div style={{ flex: '1 1 50%', background: "url('/images/machinery.png') center/cover" }}></div>
       </section>
