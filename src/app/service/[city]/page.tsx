@@ -1,26 +1,13 @@
 import type { Metadata } from 'next'
 import AIEstimationForm from '@/components/AIEstimationForm'
 import VisualProofGallery from '@/components/VisualProofGallery'
+import ServiceAreaSchema from '@/components/ServiceAreaSchema'
 import { notFound } from 'next/navigation'
 import Image from 'next/image'
-
-const cities = [
-  'roanoke-va', 'charlottesville-va', 'winchester-va', 'monterey-va', 'staunton-va',
-  'harrisonburg-va', 'lexington-va', 'waynesboro-va', 'hot-springs-va', 'warm-springs-va',
-  'clifton-forge-va', 'covington-va', 'luray-va', 'front-royal-va', 'buchanan-va',
-  'fincastle-va', 'crozet-va', 'new-market-va', 'woodstock-va', 'strasburg-va',
-  'troutville-va', 'natural-bridge-va', 'goshen-va', 'craigsville-va', 'fairfield-va',
-  'afton-va', 'wintergreen-va', 'nellysford-va', 'lovingston-va', 'raphine-va',
-  'steeles-tavern-va', 'vesuvius-va', 'eagle-rock-va', 'iron-gate-va', 'millboro-va',
-  'bolar-va', 'mcdowell-va', 'mustoe-va', 'hightown-va', 'blue-grass-va',
-  'doe-hill-va', 'sugar-grove-va', 'fort-defiance-va', 'mount-sidney-va', 'grottoes-va',
-  'elkton-va', 'mcgaheysville-va', 'massanutten-va', 'timberville-va', 'broadway-va',
-  'highlands-va', 'franklin-wv', 'churchville-va', 'williamsville-va', 'swoope-va',
-  'deerfield-va', 'middlebrook-va', 'mount-solon-va'
-];
+import { CITIES } from '@/lib/locations'
 
 export async function generateStaticParams() {
-  return cities.map((city) => ({
+  return CITIES.map((city) => ({
     city: city,
   }))
 }
@@ -31,7 +18,7 @@ function formatCityName(slug: string) {
   const parts = slug.split('-');
   const state = parts.pop()?.toUpperCase(); // VA or WV
   const city = parts.map(word => word.charAt(0).toUpperCase() + word.slice(1)).join(' ');
-  return `${city}, ${state}`;
+  return { full: `${city}, ${state}`, cityOnly: city, stateOnly: state };
 }
 
 // HCU / Geographic Context Engine
@@ -60,37 +47,72 @@ function getGeographicContext(city: string) {
 
 export async function generateMetadata({ params }: { params: Promise<{ city: string }> }): Promise<Metadata> {
   const resolvedParams = await params;
-  const cityName = formatCityName(resolvedParams.city);
-  if (!cityName) return { title: 'Service Area Not Found' };
+  const parsedCity = formatCityName(resolvedParams.city);
+  if (!parsedCity) return { title: 'Service Area Not Found' };
 
   return {
-    title: `Asphalt Paving in ${cityName} | Blue Ridge`,
-    description: `The leading 4th-generation asphalt paving contractor serving ${cityName}. We engineer heavy-duty rural driveways, commercial parking lots, and tar and chip surfacing to survive the Appalachian climate.`,
-    keywords: `Asphalt Paving ${cityName}, Driveway Paving ${cityName}, Commercial Paving ${cityName}, Tar and Chip ${cityName}, Sealcoating ${cityName}, Paving Contractor ${cityName}`,
+    title: `Asphalt Paving in ${parsedCity.full} | Blue Ridge`,
+    description: `The leading 4th-generation asphalt paving contractor serving ${parsedCity.full}. We engineer heavy-duty rural driveways, commercial parking lots, and tar and chip surfacing to survive the Appalachian climate.`,
+    keywords: `Asphalt Paving ${parsedCity.full}, Driveway Paving ${parsedCity.full}, Commercial Paving ${parsedCity.full}, Tar and Chip ${parsedCity.full}, Sealcoating ${parsedCity.full}, Paving Contractor ${parsedCity.full}`,
   }
 }
 
 export default async function CityServicePage({ params }: { params: Promise<{ city: string }> }) {
   const resolvedParams = await params;
-  const cityName = formatCityName(resolvedParams.city);
+  const parsedCity = formatCityName(resolvedParams.city);
   const geoContext = getGeographicContext(resolvedParams.city);
 
-  if (!cityName) {
+  if (!parsedCity) {
     notFound();
   }
+  
+  const cityName = parsedCity.full;
+
+  const breadcrumbSchema = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [{
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Home",
+      "item": "https://www.blueridgeasphaltpaving.com"
+    },{
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Service Areas",
+      "item": "https://www.blueridgeasphaltpaving.com"
+    },{
+      "@type": "ListItem",
+      "position": 3,
+      "name": parsedCity.full,
+      "item": `https://www.blueridgeasphaltpaving.com/service/${resolvedParams.city}`
+    }]
+  };
 
   return (
     <main>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
+      />
+      <ServiceAreaSchema city={parsedCity.cityOnly} state={parsedCity.stateOnly} />
       {/* High-End Dynamic Hero */}
-      <section className="hero" style={{ backgroundImage: "url('/images/hero.png')" }}>
-        <div className="hero-overlay"></div>
-        <div className="hero-content">
+      <section className="hero" style={{ position: 'relative', overflow: 'hidden' }}>
+        <Image 
+          src="/images/hero.png" 
+          alt={`Commercial asphalt paving operation in ${parsedCity.full}`}
+          fill
+          priority
+          style={{ objectFit: 'cover', zIndex: 0 }}
+        />
+        <div className="hero-overlay" style={{ zIndex: 1, position: 'absolute', inset: 0 }}></div>
+        <div className="hero-content" style={{ zIndex: 2, position: 'relative' }}>
           <div style={{ display: 'inline-block', border: '1px solid var(--estate-gold)', padding: '5px 15px', color: 'var(--estate-gold)', fontSize: '0.9rem', letterSpacing: '2px', textTransform: 'uppercase', marginBottom: '20px' }}>
             Exclusive Regional Service Area
           </div>
-          <h1 style={{ fontSize: '4.5rem', marginBottom: '20px' }}>Premium Asphalt Paving in <br/><span style={{ color: 'var(--powerhouse-red)' }}>{cityName}</span>.</h1>
+          <h1 style={{ fontSize: '4.5rem', marginBottom: '20px' }}>Premium Asphalt Paving in <br/><span style={{ color: 'var(--powerhouse-red)' }}>{parsedCity.full}</span>.</h1>
           <p style={{ maxWidth: '800px', margin: '0 auto', fontSize: '1.4rem' }}>
-            We bring 80,000lb-rated commercial engineering to {cityName}. Stop settling for thin asphalt that shatters in the winter. We build structural pavement designed to outlast the mountains.
+            We bring 80,000lb-rated commercial engineering to {parsedCity.full}. Stop settling for thin asphalt that shatters in the winter. We build structural pavement designed to outlast the mountains.
           </p>
         </div>
       </section>
@@ -109,14 +131,45 @@ export default async function CityServicePage({ params }: { params: Promise<{ ci
             As a 4th-generation paving company, <strong style={{ color: 'var(--pure-white)' }}>Blue Ridge Estate Paving</strong> does not guess tonnage or skimp on aggregate base. Every driveway and commercial lot we construct in {cityName} begins with a highly compacted, heavy-duty #21A crushed stone subbase. 
           </p>
           
-          <div className="glass-panel" style={{ padding: '30px', borderLeft: '4px solid var(--estate-gold)', marginTop: '20px' }}>
+          <div className="glass-panel" style={{ padding: '30px', borderLeft: '4px solid var(--estate-gold)', marginTop: '20px', marginBottom: '50px' }}>
             <p style={{ fontSize: '1.15rem', color: 'var(--estate-gold)', fontStyle: 'italic', margin: 0, lineHeight: '1.8' }}>
               "I have been paving the Highlands and these mountain roads since I was 15 years old working alongside my grandfather. We aren't a pop-up crew—we are a multi-generational Appalachian paving family." <br/>
               <span style={{ display: 'block', marginTop: '10px', fontWeight: 'bold', color: 'var(--pure-white)' }}>— GW George, Founder</span>
             </p>
           </div>
+
+          {/* NEW: SEO Content Silo - Appalachian Terrain & Grading */}
+          <div style={{ marginBottom: '50px' }}>
+            <h3 style={{ fontSize: '2.2rem', marginBottom: '20px', color: 'var(--estate-gold)' }}>Mountain-Grade Paving & Elevation Engineering</h3>
+            <p style={{ fontSize: '1.15rem', color: 'var(--text-secondary)', marginBottom: '15px', lineHeight: '1.8' }}>
+              Traditional paving contractors from the flatlands fail to understand the sheer hydrological forces at play in {parsedCity.full}. When paving steep driveways and high-elevation access roads, gravity and water are your absolute enemies. If an asphalt surface is not properly graded and crowned, severe rainstorms will bypass the surface, wash out the subgrade, and cause catastrophic pavement collapse.
+            </p>
+            <p style={{ fontSize: '1.15rem', color: 'var(--text-secondary)', marginBottom: '15px', lineHeight: '1.8' }}>
+              We specialize in extreme terrain excavation. Before laying any asphalt, our crews construct highly calculated water diversion swales, install heavy-duty culvert pipes, and aggressively compact a thick VDOT-spec #21A crushed stone base. Our mountain-grade hot mix asphalt is specifically formulated with high-polymer binders to prevent "downward creep" on steep inclines during intense summer heat.
+            </p>
+          </div>
+
+          {/* NEW: SEO Content Silo - Tar and Chip Mastery */}
+          <div style={{ marginBottom: '50px', background: 'rgba(0,0,0,0.4)', padding: '30px', borderLeft: '4px solid var(--powerhouse-red)' }}>
+            <h3 style={{ fontSize: '2rem', marginBottom: '15px', color: 'var(--pure-white)' }}>Tar & Chip Paving (Macadam) in {parsedCity.cityOnly}</h3>
+            <p style={{ fontSize: '1.15rem', color: '#ccc', marginBottom: '15px', lineHeight: '1.8' }}>
+              For rural properties, long agricultural lanes, and expansive mountain driveways in {parsedCity.full}, standard asphalt can be cost-prohibitive and dangerously slick in the winter snow. That is why we are the premier installers of <strong>Tar and Chip paving</strong> in the region.
+            </p>
+            <p style={{ fontSize: '1.15rem', color: '#ccc', marginBottom: '0', lineHeight: '1.8' }}>
+              Also known as chip seal or macadam, this process involves spraying a heavy coat of liquid asphalt emulsion directly onto a compacted base, followed immediately by an embedment of clean, crushed aggregate. The result is a highly durable, rustic-looking surface that provides <strong>massive tire traction for snowy mountain switchbacks</strong> while remaining virtually maintenance-free.
+            </p>
+          </div>
+
+          {/* NEW: SEO Content Silo - Premium Estate Capabilities */}
+          <div style={{ marginBottom: '20px' }}>
+            <h3 style={{ fontSize: '1.8rem', marginBottom: '15px', color: 'var(--estate-gold)' }}>Luxury Estate Operations & Privacy</h3>
+            <p style={{ fontSize: '1.15rem', color: 'var(--text-secondary)', lineHeight: '1.8' }}>
+              When operating on high-end luxury estates and secluded rural properties in {parsedCity.cityOnly}, we prioritize minimal disruption and absolute privacy. Our crews mobilize highly efficient, self-contained heavy equipment fleets designed to execute massive structural paving projects rapidly. From grand entryway courtyards to miles-long private access roads, we deliver flawless aesthetic finishes worthy of the most exclusive properties in the Highlands.
+            </p>
+          </div>
+
         </div>
-        <div style={{ flex: '1 1 50%', background: "url('/images/machinery.png') center/cover" }}></div>
+        <div style={{ flex: '1 1 50%', background: "url('/images/machinery.png') center/cover", minHeight: '600px' }}></div>
       </section>
 
       {/* Services Grid (Tailored for the city) */}

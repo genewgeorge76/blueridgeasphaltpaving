@@ -1,5 +1,6 @@
 import { getInsightData, getAllInsightSlugs } from '@/lib/insights'
 import type { Metadata } from 'next'
+import Image from 'next/image'
 
 // Next.js App Router Static Generation
 export async function generateStaticParams() {
@@ -23,11 +24,47 @@ export default async function InsightPost({ params }: { params: Promise<{ slug: 
   const resolvedParams = await params
   const insightData = await getInsightData(resolvedParams.slug)
 
+  const articleSchema = {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": insightData.title,
+    "image": [
+      `https://www.blueridgeasphaltpaving.com${insightData.coverImage}`
+    ],
+    "datePublished": new Date(insightData.date).toISOString(),
+    "dateModified": new Date(insightData.date).toISOString(),
+    "author": [{
+        "@type": "Person",
+        "name": insightData.author || "GW George",
+        "url": "https://www.blueridgeasphaltpaving.com/our-legacy"
+    }],
+    "publisher": {
+      "@type": "Organization",
+      "name": "Blue Ridge Estate Paving",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://www.blueridgeasphaltpaving.com/logo.png"
+      }
+    },
+    "description": insightData.description
+  };
+
   return (
     <main>
-      <section className="subpage-hero" style={{ backgroundImage: `url('${insightData.coverImage}')` }}>
-        <div className="hero-overlay" style={{ background: 'linear-gradient(to right, rgba(0,0,0,0.9), rgba(0,0,0,0.4))' }}></div>
-        <div className="hero-content">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(articleSchema) }}
+      />
+      <section className="hero" style={{ position: 'relative', overflow: 'hidden' }}>
+        <Image 
+          src={insightData.coverImage} 
+          alt={insightData.title}
+          fill
+          priority
+          style={{ objectFit: 'cover', zIndex: 0 }}
+        />
+        <div className="hero-overlay" style={{ background: 'linear-gradient(to right, rgba(0,0,0,0.9), rgba(0,0,0,0.4))', zIndex: 1, position: 'absolute', inset: 0 }}></div>
+        <div className="hero-content" style={{ zIndex: 2, position: 'relative' }}>
           <p style={{ color: 'var(--powerhouse-red)', fontWeight: 'bold', letterSpacing: '2px', marginBottom: '10px' }}>
             ENGINEERING CASE STUDY
           </p>

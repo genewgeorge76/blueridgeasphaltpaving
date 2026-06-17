@@ -1,5 +1,6 @@
 import { MetadataRoute } from 'next'
 import { getSortedInsightsData } from '@/lib/insights'
+import { CITIES } from '@/lib/locations'
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const baseUrl = 'https://www.blueridgeasphaltpaving.com'
@@ -15,30 +16,8 @@ export default function sitemap(): MetadataRoute.Sitemap {
     '/insights',
   ]
 
-  // Local SEO Silo Pages (Domination Engine)
-  const locations = [
-    '/service/roanoke-va',
-    '/service/charlottesville-va',
-    '/service/winchester-va',
-    '/service/monterey-va',
-    '/service/staunton-va',
-    '/service/harrisonburg-va',
-    '/service/lexington-va',
-    '/service/waynesboro-va',
-    '/service/hot-springs-va',
-    '/service/warm-springs-va',
-    '/service/clifton-forge-va',
-    '/service/covington-va',
-    '/service/luray-va',
-    '/service/front-royal-va',
-    '/service/buchanan-va',
-    '/service/fincastle-va',
-    '/service/crozet-va',
-    '/service/new-market-va',
-    '/service/woodstock-va',
-    '/service/strasburg-va',
-    '/service/franklin-wv'
-  ]
+  // Local SEO Silo Pages (Domination Engine) - now maps all 60 cities
+  const locations = CITIES.map((city) => `/service/${city}`)
 
   const serviceUrls = services.map((route) => ({
     url: `${baseUrl}${route}`,
