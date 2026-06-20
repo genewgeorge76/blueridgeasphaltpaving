@@ -3,6 +3,7 @@ import './globals.css'
 import { Phone, MapPin } from 'lucide-react'
 import Link from 'next/link'
 import GeoSchema from '@/components/GeoSchema'
+import { Analytics } from '@vercel/analytics/next'
 
 export const metadata: Metadata = {
   metadataBase: new URL('https://www.blueridgeasphaltpaving.com'),
@@ -181,6 +182,7 @@ export default function RootLayout({
             <p style={{ fontSize: '0.8rem', opacity: '0.6' }}>Blue Ridge Estate Paving is a division of J. Worden & Sons Paving LLC.</p>
           </div>
         </footer>
+        <Analytics />
       </body>
     </html>
   )
