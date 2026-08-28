@@ -402,3 +402,43 @@ details.faq-details[open] summary .faq-icon {
 .faq-icon {
   transition: transform 0.3s ease;
 }
+
+/* ==========================================================================
+   MOBILE — the entire stylesheet above was written desktop-only (zero media
+   queries shipped; the owner opened the site on his iPhone and got the
+   desktop layout shrunk to postage size). This block is the phone layer.
+
+   The pages lean on inline styles, so several rules use attribute-contains
+   selectors with !important — a stylesheet !important beats an inline style,
+   which is the only way to rescue hardcoded grid-template-columns and
+   min-widths without touching forty page files.
+   ========================================================================== */
+@media (max-width: 768px) {
+  html, body { overflow-x: hidden; }
+  img, video { max-width: 100%; height: auto; }
+
+  .hero-content { padding: 0 20px; }
+  .hero-content h1 {
+    font-size: clamp(2.1rem, 9vw, 3rem);
+    letter-spacing: -1px;
+  }
+  .hero-content p { font-size: 1.05rem; margin-bottom: 32px; }
+
+  /* 400px minimum tiles cannot fit a 390px phone — one column, natural height */
+  .massive-grid { grid-template-columns: 1fr; }
+  .grid-item { aspect-ratio: auto; min-height: 320px; }
+  .grid-content h3 { font-size: 1.6rem; }
+
+  /* Rescue every inline rigid grid (footer's 1fr 1fr 1fr 1fr included) */
+  [style*="grid-template-columns"] { grid-template-columns: 1fr 1fr !important; }
+  /* Inline min-width:300px cards force overflow inside flex rows */
+  [style*="min-width"] { min-width: 0 !important; }
+  /* Inline horizontal paddings of 40-60px eat a phone screen */
+  [style*="padding: 30px 40px"], [style*="padding:30px 40px"] { padding: 20px 16px !important; }
+
+  h2 { font-size: clamp(1.5rem, 6.5vw, 2rem) !important; }
+}
+
+@media (max-width: 480px) {
+  [style*="grid-template-columns"] { grid-template-columns: 1fr !important; }
+}

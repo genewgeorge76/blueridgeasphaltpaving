@@ -114,7 +114,7 @@ export default function RootLayout({
             </div>
             <div className="footer-col" style={{ flex: '2 1 400px' }}>
               <h3>Highland & Rural Service Areas</h3>
-              <ul style={{ listStyle: 'none', padding: 0, marginTop: '20px', display: 'grid', gridTemplateColumns: '1fr 1fr 1fr 1fr', gap: '8px', fontSize: '0.85rem' }}>
+              <ul style={{ listStyle: 'none', padding: 0, marginTop: '20px', display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(140px, 1fr))', gap: '8px', fontSize: '0.85rem' }}>
                 <li><Link href="/service/roanoke-va" style={{ color: '#aaa', textDecoration: 'none' }}>Roanoke, VA</Link></li>
                 <li><Link href="/service/charlottesville-va" style={{ color: '#aaa', textDecoration: 'none' }}>Charlottesville, VA</Link></li>
                 <li><Link href="/service/winchester-va" style={{ color: '#aaa', textDecoration: 'none' }}>Winchester, VA</Link></li>
